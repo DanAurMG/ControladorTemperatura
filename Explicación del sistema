@@ -1,0 +1,11 @@
+El sistema funciona en dos partes, una es la parte que envía los datos y la otra es la que los recibe, procesa y manda las señales, primero, el circuito receptor de temperatura, este circuito funciona con un puente de Wheatstone el cual, al cambiar la resistencias del termistor, envía 
+una señal de voltaje a un amplificador operacional LM324, el cual se encarga de amplificar el voltaje con una ganancia de 51 para el caso de 
+este proyecto y, una vez que se tiene un voltaje entre 0-3V, ese voltaje será enviado a la plataforma ESP8266, la cual, a través de la entrada 
+analógica, leerá el voltaje entregado por este primer circuito. En cuanto a la segunda parte de este proyecto, una vez que la plataforma 
+haya leído la señal de voltaje, automáticamente la convertirá en valores de entre 0- 1 024, con base en este valor, se determinará si el sistema
+ de salida, que, por una configuración entrega 6V en lugar de los habituales 3.3V, deberá enviar la señal 1, 2 o 3, para esta parte, la 
+señal 1 y 3 están acondicionadas a un transistor MPS el cual está conectado directamente a los 6V en el colector, mientras que recibe la 
+señal 1 o 3, dependiendo del programa, en la base, haciendo esto que se mande señal en el emisor cuando el programa envía la señal 1 o la señal 
+3; mientras que para la señal 2, se envía directamente la señal de salida a una resistencia de 220 ohms para luego enviar el voltaje a un 
+led verde que indicará que la temperatura está "templada".La señal 1 enciende un ventilador y la señal 3 un led de luz blanca que se calienta mientras más tiempo está encendido, actuando así como 
+calentador
